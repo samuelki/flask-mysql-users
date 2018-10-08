@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Edit User {{ id }}</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit User {{ id }}</h1>
+        <form action="/users/{{ id }}" method="post">
+            <div class="form-group row">
+                <label for="first_name" class="col-sm-2 col-form-label">First name:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="first_name" value="{{ user['first_name'] }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="last_name" class="col-sm-2 col-form-label">Last name:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="last_name" value="{{ user['last_name'] }}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" name="email" value="{{ user['email'] }}">
+                </div>
+            </div>
+            <input type="submit" value="Update" class="submit">
+            <a href="/users" class="btn">Go Back</a>
+        </form>
+    </div>
+</body>
+</html>
